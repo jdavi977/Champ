@@ -3,6 +3,10 @@ Django
 django-cors-headers
 djangorestframework
 djangorestframework-simplejwt
+libmariadb-dev
+mariadb-server
+pkg-config
+mysqlclient
 PyJWT
 pytz
 sqlparse
