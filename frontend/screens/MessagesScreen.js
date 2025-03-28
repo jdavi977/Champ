@@ -1,14 +1,32 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, FlatList} from 'react-native';
+import StudentMessagesCard from '../components/studentMessagesCard';
+import {messageData as messageDataArray} from '../utils/messageData';
 
-function MesssagesScreen() {
-    
+function MessagesScreen() {
+    const [messageData, setMessagedata] = useState(messageDataArray);
 
     return (
         <View>
-            <Text>hello</Text>
+            <View>
+                <Text>Announcements</Text>
+                <StudentMessagesCard/>
+            </View>
+            <View>
+                <Text>Messages</Text>
+                <FlatList
+                    data={messageData}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({item}) => (
+                        <StudentMessagesCard
+                            image = {item.image}
+                            message = {item.message}
+                        />
+                    )}
+                />
+            </View>
         </View>
     );
 } 
 
-export default MesssagesScreen;
+export default MessagesScreen;
